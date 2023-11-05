@@ -1,4 +1,5 @@
 import { Dom } from "./dom.js";
+import "./style.css";
 
 const display = (function () {
     let projectArray = [];
@@ -27,6 +28,3 @@ const display = (function () {
 display.defaultView();
 
 export { display };
-
-// updating information in dialog does not update the todo's information, maybe use setters
-// needs to be tidied

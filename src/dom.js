@@ -13,6 +13,7 @@ const Dom = (function () {
         let projectContainer = document.createElement('div');
         projectContainer.setAttribute('class', 'project');
         let projectName = document.createElement('div');
+        projectName.setAttribute('class', 'project-name');
         projectName.textContent = project.name;
         projectContainer.appendChild(projectName);
 
@@ -39,9 +40,9 @@ const Dom = (function () {
 
     const newTodoBtn = (project, projectContainer) => {
         let todoCreator = document.createElement('button');
-        todoCreator.textContent = 'Add New';
+        todoCreator.textContent = 'New Todo';
         todoCreator.addEventListener('click', () => {
-            project.addItem(new Todo('','','',''));
+            project.addItem(new Todo('Click to change','','',''));
             display.defaultView();
         })
         projectContainer.appendChild(todoCreator)
@@ -62,7 +63,7 @@ const Dom = (function () {
         newCard.setAttribute('class', 'project');
         newCard.setAttribute('id', 'new-card');
         let createProj = document.createElement('button');
-        createProj.textContent = 'Add New'
+        createProj.textContent = 'New Project'
         createProj.addEventListener('click', () => {
             let projectName = prompt("What do you want to call your project?");
             projectArray.push(new Project(projectName));
@@ -84,14 +85,36 @@ const Dom = (function () {
         descInput.setAttribute('type', 'text');
         dueInput.setAttribute('type', 'date');
         prioInput.setAttribute('type', 'number');
+        titleInput.setAttribute('id', 'title');
+        descInput.setAttribute('id', 'desc');
+        dueInput.setAttribute('id', 'due');
+        prioInput.setAttribute('id', 'prio');
         titleInput.setAttribute('value', todo.title);
-        descInput.setAttribute('value', todo.description);
+        descInput.setAttribute('value', todo.description)
         dueInput.setAttribute('value', todo.dueDate);
         prioInput.setAttribute('value', todo.priority);
+
+        let titleLabel = document.createElement('label');
+        let descLabel = document.createElement('label');
+        let dueLabel = document.createElement('label');
+        let prioLabel = document.createElement('label');
+        titleLabel.setAttribute('for', 'title');
+        descLabel.setAttribute('for', 'desc');
+        dueLabel.setAttribute('for', 'due');
+        prioLabel.setAttribute('for', 'prio');
+        titleLabel.textContent = 'Title: ';
+        descLabel.textContent = 'Description: ';
+        dueLabel.textContent = 'Due Date: ';
+        prioLabel.textContent = 'Priority: ';
+
+        dialog.appendChild(titleLabel);
         dialog.appendChild(titleInput);
-        dialog.appendChild(descInput);
+        dialog.appendChild(dueLabel);
         dialog.appendChild(dueInput);
+        dialog.appendChild(prioLabel);
         dialog.appendChild(prioInput);
+        dialog.appendChild(descLabel);
+        dialog.appendChild(descInput);
 
         closeTodoBtn(todo, titleInput, descInput, dueInput, prioInput, dialog);
         delTodoBtn(todo, project, dialog);

@@ -1,0 +1,68 @@
+body {
+    display: grid;
+    margin: 0;
+    background-color: rgb(49, 49, 49);
+}
+#content {
+    margin: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+.project {
+    background-color: rgb(32, 32, 32);
+    border: 1px solid black;
+    height: 500px;
+    padding: 40px 50px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.project-name {
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    font-size: 2rem;
+    color: white;
+}
+.todo {
+    height: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: lightgray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+dialog {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: rgb(49, 49, 49);
+}
+[for='title'], #title {
+    grid-column: 1 / 2;
+}
+[for='due'], #due {
+    grid-column: 2 / 3;
+}
+[for='prio'], #prio {
+    grid-column: 3 / 4;
+}
+[for='desc'], #desc {
+    grid-column: 1 / 4;
+}
+[for='title'], 
+[for='due'],
+[for='prio'] {
+    grid-row: 1 / 2;
+}
+[for='title'], 
+[for='due'],
+[for='prio'],
+[for='desc'] {
+    color: white;
+}
+#title, #due, #prio, #desc {
+    background-color: lightgray;
+}
